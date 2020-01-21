@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +13,17 @@
 |
 */
 
-const Route = use('Route')
+const Route = use("Route");
 
-Route.post('/sessions', 'SessionController.store')
+Route.post("/sessions", "SessionController.store");
 
-Route.post('/users', 'UserController.store')
-Route.put('/users/:id', 'UserController.update').middleware('auth')
+Route.post("/users", "UserController.store");
+Route.put("/users/:id", "UserController.update").middleware("auth");
 
-Route.resource('/posts', 'PostController')
+Route.resource("/posts", "PostController")
   .apiOnly()
-  .middleware('auth')
+  .middleware("auth");
+
+Route.resource("permissions", "PermissionController")
+  .apiOnly()
+  .middleware("auth");
